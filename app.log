@@ -1,0 +1,357 @@
+2025-05-12 16:31:32,473 - app - INFO - Database tables created or already exist.
+2025-05-12 16:31:38,665 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 16:31:38,665 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 16:31:38,679 - app - INFO - Fetched 5 total items.
+2025-05-12 16:31:38,679 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 16:31:38,695 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 16:31:38,696 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 16:31:38,696 - app - INFO - Number of combinations generated: 2
+2025-05-12 16:31:38,696 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 16:31:38,704 - app - INFO - ------------------------------------
+
+2025-05-12 16:31:38,704 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 16:31:38,761 - app - ERROR - Error generating combinations: block 'title' defined twice
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 31, in template
+    {% block title %}Outfit Combinations for {{ occasion | capitalize }}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'title' defined twice
+2025-05-12 16:34:11,007 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 16:34:11,007 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 16:34:11,010 - app - INFO - Fetched 5 total items.
+2025-05-12 16:34:11,010 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 16:34:11,021 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 16:34:11,021 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 16:34:11,023 - app - INFO - Number of combinations generated: 2
+2025-05-12 16:34:11,023 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 16:34:11,024 - app - INFO - ------------------------------------
+
+2025-05-12 16:34:11,024 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 16:34:11,046 - app - ERROR - Error generating combinations: block 'title' defined twice
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 31, in template
+    {% block title %}Outfit Combinations for {{ occasion | capitalize }}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'title' defined twice
+2025-05-12 16:45:05,081 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 16:45:05,081 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 16:45:05,085 - app - INFO - Fetched 5 total items.
+2025-05-12 16:45:05,085 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 16:45:05,118 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 16:45:05,120 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 16:45:05,120 - app - INFO - Number of combinations generated: 2
+2025-05-12 16:45:05,120 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 16:45:05,120 - app - INFO - ------------------------------------
+
+2025-05-12 16:45:05,120 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 16:45:05,174 - app - ERROR - Error generating combinations: block 'title' defined twice
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 33, in template
+    {% block title %}Outfit Combinations for {{ occasion | capitalize }}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'title' defined twice
+2025-05-12 16:46:21,567 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 16:46:21,567 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 16:46:21,570 - app - INFO - Fetched 5 total items.
+2025-05-12 16:46:21,571 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 16:46:21,582 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 16:46:21,582 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 16:46:21,582 - app - INFO - Number of combinations generated: 2
+2025-05-12 16:46:21,582 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 16:46:21,582 - app - INFO - ------------------------------------
+
+2025-05-12 16:46:21,582 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 16:46:21,600 - app - ERROR - Error generating combinations: block 'title' defined twice
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 33, in template
+    {% block title %}Outfit Combinations for {{ occasion | capitalize }}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'title' defined twice
+2025-05-12 16:46:31,777 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 16:46:31,777 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 16:46:31,780 - app - INFO - Fetched 5 total items.
+2025-05-12 16:46:31,780 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 16:46:31,791 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 16:46:31,791 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 16:46:31,791 - app - INFO - Number of combinations generated: 2
+2025-05-12 16:46:31,791 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 16:46:31,791 - app - INFO - ------------------------------------
+
+2025-05-12 16:46:31,791 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 16:46:31,813 - app - ERROR - Error generating combinations: block 'title' defined twice
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 33, in template
+    {% block title %}Outfit Combinations for {{ occasion | capitalize }}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'title' defined twice
+2025-05-12 16:51:20,612 - app - INFO - Database tables created or already exist.
+2025-05-12 16:51:33,228 - app - INFO - Database tables created or already exist.
+2025-05-12 16:51:40,084 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 16:51:40,085 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 16:51:40,088 - app - INFO - Fetched 5 total items.
+2025-05-12 16:51:40,090 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 16:51:40,105 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 16:51:40,105 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 16:51:40,105 - app - INFO - Number of combinations generated: 2
+2025-05-12 16:51:40,107 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 16:51:40,109 - app - INFO - ------------------------------------
+
+2025-05-12 16:51:40,109 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 16:51:40,143 - app - ERROR - Error generating combinations: block 'title' defined twice
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 33, in template
+    {% block title %}Outfit Combinations for {{ occasion | capitalize }}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'title' defined twice
+2025-05-12 17:11:25,717 - app - INFO - Database tables created or already exist.
+2025-05-12 17:11:37,395 - app - INFO - Database tables created or already exist.
+2025-05-12 17:11:55,551 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 17:11:55,552 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 17:11:55,553 - app - INFO - Fetched 5 total items.
+2025-05-12 17:11:55,553 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 17:11:55,577 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 17:11:55,577 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 17:11:55,577 - app - INFO - Number of combinations generated: 2
+2025-05-12 17:11:55,579 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 17:11:55,579 - app - INFO - ------------------------------------
+
+2025-05-12 17:11:55,579 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 17:11:55,649 - app - ERROR - Error generating combinations: Object of type ndarray is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\base.html", line 28, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 91, in block 'content'
+    <p style="font-size: 0.8em;">Debug Data: {{ combo | tojson }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\shrey\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type ndarray is not JSON serializable
+2025-05-12 17:18:24,993 - app - INFO - Database tables created or already exist.
+2025-05-12 17:18:30,260 - app - INFO - Database tables created or already exist.
+2025-05-12 17:18:42,371 - app - INFO - Received POST request to /combinations for occasion: casual
+2025-05-12 17:18:42,371 - app - INFO - Fetching all wardrobe items from DB...
+2025-05-12 17:18:42,371 - app - INFO - Fetched 5 total items.
+2025-05-12 17:18:42,371 - app - INFO - Calling generate_combinations for occasion: casual
+2025-05-12 17:18:42,378 - app - INFO - 
+--- Data being sent to template: ---
+2025-05-12 17:18:42,378 - app - INFO - Type of combinations_result: <class 'list'>
+2025-05-12 17:18:42,378 - app - INFO - Number of combinations generated: 2
+2025-05-12 17:18:42,378 - app - INFO - First combo structure sample: {'score': np.float64(0.78), 'items_count': 3, 'first_item_keys': ['id', 'name', 'item_type', 'pattern', 'occasion_tags', 'image_filename', 'dominant_colors_rgb_str', 'embedding_blob', 'image_url', 'embedding', 'dominant_colors_rgb']}
+2025-05-12 17:18:42,378 - app - INFO - ------------------------------------
+
+2025-05-12 17:18:42,378 - app - INFO - Rendering view_combinations.html with 2 combinations.
+2025-05-12 17:18:42,404 - app - ERROR - Error generating combinations: Object of type ndarray is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\app.py", line 523, in view_combinations
+    return render_template('view_combinations.html',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\base.html", line 28, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\templates\view_combinations.html", line 73, in block 'content'
+    <p style="font-size: 0.8em;">Debug Data: {{ combo | tojson }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\jinja2\utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\shrey\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\shrey\Downloads\wardrobe_wizard\wardrobe_app\venv\Lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type ndarray is not JSON serializable

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}My Wardrobe{% endblock %}
+
+{% block content %}
+    <h1>My Wardrobe</h1>
+
+    <div class="add-item-link">
+        <a href="{{ url_for('add_item') }}">Add New Item</a>
+    </div>
+
+    <hr>
+
+    <h2>Find Combinations</h2>
+    {% if occasions %}
+    <form action="{{ url_for('view_combinations') }}" method="post" class="combination-form">
+        <label for="occasion">Select Occasion:</label>
+        <select name="occasion" id="occasion" required>
+            <option value="" disabled selected>-- Choose an Occasion --</option>
+            {% for occasion in occasions %}
+            <option value="{{ occasion }}">{{ occasion | capitalize }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Generate Outfits</button>
+    </form>
+    {% else %}
+        <p>Add items to your wardrobe to start generating outfits.</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>Wardrobe Items</h2>
+    {% if items %}
+        <div class="wardrobe-grid">
+            {% for item in items %}
+            <div class="wardrobe-item">
+                <img src="{{ item.image_url }}" alt="{{ item.name }}" width="150">
+                <p><strong>{{ item.name }}</strong></p>
+                <p>Type: {{ item.item_type | capitalize }}</p>
+                <p>Pattern: {{ item.pattern | capitalize }}</p>
+                <p>Occasions: {{ item.occasion_tags }}</p>
+                <!-- Optional: Link to delete or edit item -->
+          </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Your wardrobe is empty. <a href="{{ url_for('add_item') }}">Add your first item!</a></p>
+    {% endif %}
+{% endblock %}
+

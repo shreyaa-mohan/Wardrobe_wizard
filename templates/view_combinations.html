@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{# Define the title block ONLY ONCE, right after extends #}
+{% block title %}Outfit Combinations for {{ occasion | capitalize }}{% endblock %}
+
+{# Define the main content block ONCE #}
+{% block content %}
+    <h1>Outfit Combinations for "{{ occasion | capitalize }}"</h1>
+    <p><a href="{{ url_for('index') }}">« Back to Wardrobe</a></p>
+
+    <!-- Outer check: Do we have combinations data passed from Flask? -->
+    {% if combinations is defined and combinations %}
+        {# <p><strong>Debug Info:</strong> Found {{ combinations | length }} combination(s) passed to template.</p> #}
+        {# Uncomment above line for basic count debug if needed #}
+        <hr>
+        <div class="combinations-grid">
+            <!-- Loop through each 'combo' dictionary in the 'combinations' list -->
+            {% for combo in combinations %}
+            <div class="combination-card">
+                <!-- Display score safely -->
+                <h3>Outfit Score: {{ combo.get('score', 'N/A') | round(3) }}</h3>
+
+                <!-- *** Optional Debug Block: Uncomment if images don't show later *** -->
+                {#
+                <div style="border: 1px dashed blue; padding: 5px; margin-bottom: 10px; background-color: #f0f8ff;">
+                    <p style="font-weight: bold;">Debug - Combo Items (Cleaned):</p>
+                    <pre style="font-size: 0.8em; max-height: 150px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word;">{{ combo.get('items', []) | tojson(indent=2) }}</pre>
+                    <p>Item count in this combo: {{ combo.get('items', []) | length }}</p>
+                    {% if combo.get('items', []) %}
+                        {% set first_item = combo.get('items')[0] %}
+                        {% if first_item is mapping %}
+                            {% set required_keys = ['image_filename', 'name', 'item_type', 'image_url'] %}
+                            {% set present_keys = first_item.keys() | list %}
+                            {% set missing_keys = [] %}
+                            {% for rk in required_keys %}
+                                {% if rk not in present_keys %}
+                                    {% set _ = missing_keys.append(rk) %}
+                                {% endif %}
+                            {% endfor %}
+                            <p style="font-size: 0.8em;">
+                                First Item Keys: {{ present_keys | join(', ') }}
+                                {% if missing_keys %}
+                                    <strong style="color:orange;">(Missing for display: {{ missing_keys | join(', ') }})</strong>
+                                {% endif %}
+                            </p>
+                        {% endif %}
+                    {% endif %}
+                 </div>
+                #}
+                 <!-- *** End Optional Debug Block *** -->
+
+                 <!-- REAL DISPLAY BLOCK -->
+                 <div class="combination-items">
+                     {# Loop through each item dictionary using combo.get for safety #}
+                     {% for item in combo.get('items', []) %}
+                         {# Check if item is a dictionary and has the keys needed for display #}
+                         {# Make sure 'image_url' is present from the cleaning step in app.py #}
+                         {% if item is mapping and 'image_url' in item and 'name' in item and 'item_type' in item %}
+                         <div class="combo-item">
+                             <img src="{{ item.image_url }}" alt="{{ item.name }}" title="{{ item.name }} ({{ item.item_type | capitalize }})" width="100">
+                             {# Display name and type on separate lines for clarity #}
+                             <p>{{ item.name }}<br><span style="font-size:0.8em; color: #555;">({{ item.item_type | capitalize }})</span></p>
+                         </div>
+                         {% else %}
+                            {# Display an error if item data is missing/wrong for THIS item #}
+                            <div class="combo-item" style="border: 1px solid red; padding: 5px; width: 100px; height: 120px; overflow: hidden; background-color: #fff0f0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                                <p style="color: red; font-size: 0.8em; margin: 0; font-weight: bold;">Data Error</p>
+                                {# Optionally show minimal problematic data #}
+                                {# <p style="font-size: 0.7em; max-height: 80px; overflow: hidden; word-wrap: break-word;">{{ item | tojson }}</p> #}
+                            </div>
+                         {% endif %} {# End item check #}
+                     {% else %} {# Added else for the inner loop in case items is empty #}
+                        <p>No items found in this combination.</p>
+                     {% endfor %} {# End item loop #}
+                 </div>
+                 <!-- *** END REAL DISPLAY BLOCK *** -->
+
+            </div> {# End combination-card #}
+            {% else %} {# Added else for the outer loop in case combinations is empty #}
+                <p>No combinations generated or passed to the template.</p>
+            {% endfor %} {# End loop through combinations #}
+        </div> {# End combinations-grid #}
+
+    {% else %}
+        <!-- Message shown if combinations variable is empty or not defined -->
+        <p><strong>No combinations to display.</strong></p>
+        <ul>
+            <li>No valid combinations could be generated for "{{ occasion | capitalize }}".</li>
+            <li>You might not have enough compatible items (e.g., required types like top, bottom, shoes) tagged for this occasion and with features extracted.</li>
+            <li>Check application logs for specific errors during generation or data cleaning.</li>
+        </ul>
+    {% endif %} {# End if combinations #}
+
+{% endblock %} {# End content block #}
+
+{# THERE IS NO OTHER {% block title %} IN THIS FILE #}

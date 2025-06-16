@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{# Define the title block ONLY ONCE, right after extends #}
+{% block title %}Add New Wardrobe Item{% endblock %}
+
+{# Define the main content block ONCE #}
+{% block content %}
+    <h1>Add New Wardrobe Item</h1>
+
+    {# Display flashed messages if any #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {# Use Bootstrap alert classes or your own styling #}
+                <div class="alert alert-{{ category }}" role="alert" style="padding: 10px; margin-bottom: 15px; border: 1px solid transparent; border-radius: 4px; background-color: #f8d7da; border-color: #f5c6cb; color: #721c24;">
+                   {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {# --- Add Item Form --- #}
+    {# Added id="addItemForm" for the JavaScript #}
+    <form method="POST" action="{{ url_for('add_item') }}" enctype="multipart/form-data" id="addItemForm">
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="name" style="display: block; margin-bottom: 5px;">Item Name:</label>
+            {# Use request.form if available (e.g., on validation error return) #}
+            <input type="text" id="name" name="name" class="form-control" required value="{{ request.form.get('name', '') }}">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="item_type" style="display: block; margin-bottom: 5px;">Item Type:</label>
+            <select id="item_type" name="item_type" class="form-control" required>
+                <option value="" disabled {% if not request.form.get('item_type') %}selected{% endif %}>Select Type...</option>
+                {# item_type_choices comes from the Flask route #}
+                {% for type_choice in item_type_choices %}
+                    <option value="{{ type_choice.lower() }}" {% if request.form.get('item_type') == type_choice.lower() %}selected{% endif %}>{{ type_choice }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="pattern" style="display: block; margin-bottom: 5px;">Pattern:</label>
+            <select id="pattern" name="pattern" class="form-control">
+                 {# Default to solid if nothing else selected #}
+                 <option value="solid" {% if request.form.get('pattern', 'solid') == 'solid' %}selected{% endif %}>Solid (Default)</option>
+                {# pattern_choices comes from the Flask route #}
+                {% for pattern_choice in pattern_choices %}
+                    {% if pattern_choice != 'Solid' %} {# Avoid duplicate Solid option #}
+                       {% set pattern_value = pattern_choice.lower().replace(' ', '_') %}
+                       <option value="{{ pattern_value }}" {% if request.form.get('pattern') == pattern_value %}selected{% endif %}>{{ pattern_choice }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+
+         <div class="form-group" style="margin-bottom: 15px;">
+            <label for="occasion_tags" style="display: block; margin-bottom: 5px;">Occasion Tags (comma-separated):</label>
+            <input type="text" id="occasion_tags" name="occasion_tags" class="form-control" required placeholder="e.g., casual, work, party" value="{{ request.form.get('occasion_tags', '') }}">
+             {# occasion_choices comes from the Flask route #}
+            <small class="form-text text-muted" style="font-size: 0.85em; color: #6c757d;">Examples: {{ occasion_choices | join(', ') }}</small>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="image_file" style="display: block; margin-bottom: 5px;">Image File:</label>
+            <input type="file" id="image_file" name="image_file" class="form-control-file" required accept="image/png, image/jpeg, image/gif, image/webp">
+            <small class="form-text text-muted" style="font-size: 0.85em; color: #6c757d;">Allowed types: png, jpg, jpeg, gif, webp.</small>
+        </div>
+
+        {# --- Submit Button --- #}
+        {# Ensure it's a button with type="submit" #}
+        <button type="submit" class="btn btn-primary" style="padding: 8px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;">Add Item</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary" style="padding: 8px 15px; background-color: #6c757d; color: white; border: none; border-radius: 4px; text-decoration: none;">Cancel</a>
+
+    </form>
+
+    {# --- JavaScript for Double Submit Prevention --- #}
+    <script>
+        const form = document.getElementById('addItemForm');
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                // Find the submit button within this specific form
+                const submitButton = form.querySelector('button[type="submit"]');
+
+                // Check if already submitted (simple check)
+                if (submitButton && submitButton.disabled) {
+                    console.log("Form submission blocked (already submitted).");
+                    event.preventDefault(); // Stop the second submission
+                    return;
+                }
+
+                // Disable the button and change text on first valid submission attempt
+                if (submitButton) {
+                    console.log("Disabling submit button.");
+                    submitButton.disabled = true;
+                    submitButton.innerText = 'Adding...';
+                     // Optional: add a spinner icon if using Bootstrap/FontAwesome
+                     // submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Adding...';
+                }
+                // Form submission proceeds normally
+            });
+        }
+    </script>
+    {# --- End JavaScript --- #}
+
+{% endblock %} {# End content block #}
+
+{# THERE SHOULD BE NO OTHER {% block title %} OR {% block content %} TAGS IN THIS FILE #}
+
+
